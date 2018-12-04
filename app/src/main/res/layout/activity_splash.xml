@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@color/theme_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:id="@+id/splash_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginStart="8.0dip"
+        android:layout_marginEnd="8.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="117.0dip"
+            android:src="@drawable/vader_logo" />
+    </FrameLayout>
+
+    <TextView
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/error_text"
+        android:visibility="gone"
+        android:layout_width="423.0dip"
+        android:layout_height="46.0dip"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginBottom="8.0dip"
+        android:textAlignment="center"
+        android:layout_marginStart="8.0dip"
+        android:layout_marginEnd="8.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/splash_logo"
+        app:layout_constraintVertical_bias="0.065" />
+    <Button
+        android:id="@+id/retry_button"
+        android:visibility="gone"
+        android:layout_width="180.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8.0dip"
+        android:text="@string/retry"
+        android:layout_marginStart="292.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_text"
+        app:layout_constraintVertical_bias="0.186" />
+    <Button
+        android:id="@+id/exit_button"
+        android:visibility="gone"
+        android:layout_width="180.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8.0dip"
+        android:text="@string/exit"
+        android:layout_marginStart="8.0dip"
+        android:layout_marginEnd="8.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toEndOf="@id/retry_button"
+        app:layout_constraintTop_toBottomOf="@id/error_text"
+        app:layout_constraintVertical_bias="0.186" />
+</android.support.constraint.ConstraintLayout>

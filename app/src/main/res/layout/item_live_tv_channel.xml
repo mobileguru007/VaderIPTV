@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/live_tv_item_background"
+    android:layout_width="220dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/lay_0">
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/custom_progressbar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/fav_icon"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:scaleType="fitCenter"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/television"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/item_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/fav_icon"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            tools:ignore="RtlSymmetry" />
+        <TextView
+            android:id="@+id/channel_name"
+            android:layout_below="@id/item_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@id/fav_icon"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            tools:ignore="RtlSymmetry" />
+</RelativeLayout>

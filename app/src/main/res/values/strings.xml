@@ -1,0 +1,117 @@
+<resources>
+    <string name="app_name">VaderIPTV</string>
+    <string name="retry">Retry</string>
+    <string name="exit">Exit</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="netuptv_for_online_streaming">NetupTv Live Streaming App</string>
+    <string name="prompt_email">User Name</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_short">Sign In</string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_field_required">Required</string>
+    <string name="about">About</string>
+    <string name="search">Search</string>
+
+    <string name="browse">Browse</string>
+    <string name="logout">Logout</string>
+    <string name="iptv">IPTV</string>
+
+    <string name="title_activity_exo_player">Player</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="info">Info</string>
+    <string name="account_not_found">Account not found.</string>
+    <string name="login_failed">Login Failed, Try again</string>
+    <string name="connection_error">Network Connection Error:</string>
+    <string name="success_fetch">Completed fetching EPG and Live TV data.Enjoy!</string>
+    <string name="start_fetch">Fetching EPG and Live TV data…</string>
+    <string name="fetech_failed">Failed Fetching EPG and Live TV data!</string>
+    <string name="check_for_updates">Check For Updates</string>
+    <string name="use_all_available_sources">Use all available sources</string>
+    <string name="sort_channels_by_name">Sort Channels By Name</string>
+    <string name="send_log">Send Log</string>
+    <string name="account_info">Account Info</string>
+    <string name="advanced_settings">ADVANCED SETTINGS</string>
+    <string name="enabled_categories">Enabled Categories</string>
+    <string name="show_ended_events_for_match_center">Show Ended Events For Match Center</string>
+    <string name="server_settings">Server Settings</string>
+    <string name="ui_tweaks">UI TWEAKS</string>
+    <string name="epg_settings">EPG SETTINGS</string>
+    <string name="size">Size</string>
+    <string name="main_menu_settings">MAIN MENU SETTINGS</string>
+    <string name="stop_video_playback_on_main_menu">Stop video playback on Main Menu</string>
+    <string name="main_menu_icon_scale">Main Menu Icon Scale</string>
+    <string name="live_tv_settings">LIVE TV SETTINGS</string>
+    <string name="default_player">Default Player</string>
+    <string name="enable_new_style">Enable new style</string>
+    <string name="use_mpeg_ts">Use MPEG-TS</string>
+    <string name="auto_start_last_channel">Auto Start Last Channel</string>
+    <string name="show_debug_overlay">Show Debug Overlay</string>
+    <string name="vod_settings">VOD SETTINGS</string>
+    <string name="start_app_on_boot">Start App on Boot</string>
+    <string name="prefer_highest_quality_audio">Prefer Highest Quality Audio</string>
+    <string name="auto_start">AUTO START</string>
+    <string name="when_video_is_played_always_prefer_the_highest_quality_audio_track_available">When video is played, Always prefer the highest quality audio track available</string>
+    <string name="only_enable_if_your_devices_can_support_audio_passthrough">Only enable if your devices can support audio passthrough</string>
+    <string name="enable_audio_passthrough_support_use_internal_audio">Enable Audio Passthrough Support (Use Internal Audio)</string>
+    <string name="abr_preference">ABR Preference</string>
+    <string name="alert">Alert</string>
+    <string name="warning_close">Do you want to close app?</string>
+    <string name="ok">OK</string>
+
+    <string name="TrackType_video">Video</string>
+    <string name="TrackType_audio">Audio</string>
+    <string name="TrackType_subtitle">Subtitle</string>
+    <string name="TrackType_timedtext">Timed text</string>
+    <string name="TrackType_metadata">Meta data</string>
+    <string name="TrackType_unknown">Unknown</string>
+
+    <string name="VideoView_error_text_invalid_progressive_playback">Invalid progressive playback</string>
+    <string name="VideoView_error_text_unknown">Unknown</string>
+    <string name="VideoView_error_button">OK</string>
+
+    <string name="VideoView_ar_aspect_fit_parent">Aspect / Fit parent</string>
+    <string name="VideoView_ar_aspect_fill_parent">Aspect / Fill parent</string>
+    <string name="VideoView_ar_aspect_wrap_content">Aspect / Wrap content</string>
+    <string name="VideoView_ar_match_parent">Free / Fill parent</string>
+    <string name="VideoView_ar_16_9_fit_parent">16:9 / Fit parent</string>
+    <string name="VideoView_ar_4_3_fit_parent">4:3 / Fit parent</string>
+
+    <string name="VideoView_render_none">Render: None</string>
+    <string name="VideoView_render_surface_view">Render: SurfaceView</string>
+    <string name="VideoView_render_texture_view">Render: TextureView</string>
+
+    <string name="VideoView_player_none">Player: None</string>
+    <string name="VideoView_player_AndroidMediaPlayer">Player: AndroidMediaPlayer</string>
+    <string name="VideoView_player_IjkMediaPlayer">Player: IjkMediaPlayer</string>
+    <string name="VideoView_player_IjkExoMediaPlayer">Player: IjkExoMediaPlayer</string>
+
+
+    <string name="N_A">N/A</string>
+    <string name="close">Close</string>
+    <string name="sample">Sample</string>
+    <string name="recent">Recent</string>
+    <string name="settings">Settings</string>
+    <string name="tracks">Tracks</string>
+    <string name="toggle_player">Player</string>
+    <string name="toggle_render">Render</string>
+    <string name="toggle_ratio">Scale</string>
+    <string name="show_info">Info</string>
+    <string name="vdec">vdec</string>
+    <string name="fps">fps</string>
+    <string name="v_cache">v-cache</string>
+    <string name="a_cache">a-cache</string>
+    <string name="load_cost">load-cost</string>
+    <string name="seek_cost">seek_cost</string>
+    <string name="seek_load_cost">seek_load_cost</string>
+    <string name="tcp_speed">tcp_speed</string>
+    <string name="bit_rate">bit_rate</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
