@@ -8,13 +8,13 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.TableLayout;
 
-import com.gold.kds517.ijkplyaer.R;
 
 import java.util.Locale;
 
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.player.MediaPlayerProxy;
+import zhe.it_tech613.com.vaderiptv.R;
 
 public class InfoHudViewHolder {
     private TableLayoutBinder mTableLayoutBinder;

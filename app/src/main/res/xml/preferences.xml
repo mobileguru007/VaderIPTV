@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.preference.Preference android:singleLine="false" android:selectAllOnFocus="true" android:title="Account Info" android:key="account_info" />
+    <android.support.v7.preference.Preference android:singleLine="true" android:selectAllOnFocus="true" android:title="Current Version" android:key="version_code" />
+    <android.support.v7.preference.Preference android:title="Check For Updates" android:key="check_updates" />
+    <android.support.v7.preference.Preference android:title="Logout" android:key="logout" />
+    <android.support.v14.preference.MultiSelectListPreference android:title="Enabled Categories" android:key="bouquets" />
+    <android.support.v7.preference.PreferenceCategory android:title="Advanced Settings">
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Use All Available Sources" android:key="peer5" android:defaultValue="true" />
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Show Ended Events For Match Center" android:key="mc_show_ended" android:defaultValue="true" />
+        <android.support.v7.preference.Preference android:title="Send Log" android:key="send_log" />
+        <android.support.v7.preference.Preference android:title="Server Settings" android:key="select_server" />
+    </android.support.v7.preference.PreferenceCategory>
+    <android.support.v7.preference.PreferenceCategory android:title="UI Tweaks">
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Sort Channels By Name" android:key="sort_channels" android:defaultValue="true" />
+    </android.support.v7.preference.PreferenceCategory>
+    <android.support.v7.preference.PreferenceCategory android:title="EPG Settings">
+        <android.support.v7.preference.ListPreference android:title="Size" android:key="epg_layout_size" />
+    </android.support.v7.preference.PreferenceCategory>
+    <android.support.v7.preference.PreferenceCategory android:title="Main Menu Settings">
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Stop video playback on Main Menu" android:key="stop_playback_mainmenu" android:defaultValue="false" />
+        <EditTextPreference android:title="Main Menu Icon Scale" android:key="main_menu_scale_factor" android:defaultValue="1" android:dialogTitle="Main Menu Icon Scale" android:dialogMessage="A bigger number will make the icons larger and vise versa. Ex: 1.5" android:inputType="number" />
+    </android.support.v7.preference.PreferenceCategory>
+    <android.support.v7.preference.PreferenceCategory android:title="Live TV Settings">
+        <android.support.v7.preference.ListPreference android:title="Default Player" android:key="default_player_livetv" />
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Enable new style" android:key="livetv_new_style" android:defaultValue="true" />
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Use MPEG-TS" android:key="livetv_mpegts" android:defaultValue="false" />
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Auto Start Last Channel" android:key="livetv_auto_start" android:defaultValue="false" />
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Show Debug Overlay" android:key="show_debug" android:defaultValue="false" />
+    </android.support.v7.preference.PreferenceCategory>
+    <android.support.v7.preference.PreferenceCategory android:title="VOD Settings">
+        <android.support.v7.preference.ListPreference android:title="Default Player" android:key="default_player" />
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Show Debug Overlay" android:key="show_debug_vod" android:defaultValue="false" />
+        <android.support.v7.preference.ListPreference android:title="ABR Preference" android:key="vod_abr_default" />
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Enable Audio Passthrough Support (Use Internal Audio)" android:key="audio_passthrough" android:summary="Only enable if your devices can support audio passthrough" android:defaultValue="true" />
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Prefer Highest Quality Audio" android:key="use_highest_audio" android:summary="When video is played. Always prefer the highest quality audio track available" android:defaultValue="false" />
+    </android.support.v7.preference.PreferenceCategory>
+    <android.support.v7.preference.PreferenceCategory android:title="Auto Start">
+        <android.support.v7.preference.SwitchPreferenceCompat android:title="Start App on Boot" android:key="start_at_boot" android:defaultValue="false" />
+        <ListPreference android:title="Startup Screen" android:key="boot_activity" />
+    </android.support.v7.preference.PreferenceCategory>
+</PreferenceScreen>

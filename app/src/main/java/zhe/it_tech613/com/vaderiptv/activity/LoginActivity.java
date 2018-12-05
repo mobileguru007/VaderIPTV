@@ -31,10 +31,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -47,11 +44,9 @@ import java.util.Arrays;
 import java.util.List;
 
 
-import io.realm.Realm;
 import zhe.it_tech613.com.vaderiptv.R;
-import zhe.it_tech613.com.vaderiptv.VaderApi;
+import zhe.it_tech613.com.vaderiptv.VadersAPI;
 import zhe.it_tech613.com.vaderiptv.models.ChannelModel;
-import zhe.it_tech613.com.vaderiptv.models.ChannelRealmModel;
 import zhe.it_tech613.com.vaderiptv.utils.Constant;
 import zhe.it_tech613.com.vaderiptv.utils.M3UParser;
 import zhe.it_tech613.com.vaderiptv.utils.PreferenceManager;
@@ -62,7 +57,7 @@ import static android.text.TextUtils.isEmpty;
 
 public class LoginActivity extends AppCompatActivity {
 
-    VaderApi vaderApi;
+    VadersAPI vadersAPI;
     static final File STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
     public static final File dir = new File(STORAGE_DIRECTORY.getPath() + "/VaderIPTV");
     static File filepath;
@@ -90,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_login);
         mProgressDialog = new ProgressDialog(this);
-        vaderApi=new VaderApi(this);
+        vadersAPI =new VadersAPI(this);
         getWindow().setBackgroundDrawable(null);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
@@ -301,7 +296,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void tokenLogin(boolean isLoggedin){
         String Tag_req="req_login";
-        vaderApi.kpHUD.show();
+        vadersAPI.kpHUD.show();
         String token;
         if (isLoggedin){
             token=PreferenceManager.getTOKEN();
@@ -325,9 +320,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        vaderApi.kpHUD.dismiss();
+                        vadersAPI.kpHUD.dismiss();
                         Log.e("login_response",response.toString());
-                        if (vaderApi.parseLogin(response)) {
+                        if (vadersAPI.parseLogin(response)) {
                             if (!isLoggedin){
                                 PreferenceManager.setUSERNAME(mEmailView.getText().toString());
                                 PreferenceManager.setPASSWORD(mPasswordView.getText().toString());
@@ -345,7 +340,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
-                        vaderApi.kpHUD.dismiss();
+                        vadersAPI.kpHUD.dismiss();
                         T.showError(LoginActivity.this,getString(R.string.connection_error)+error.getMessage());
                     }
                 });

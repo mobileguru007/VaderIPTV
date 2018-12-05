@@ -5,16 +5,19 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -41,7 +44,7 @@ import zhe.it_tech613.com.vaderiptv.models.ChannelModel;
 import zhe.it_tech613.com.vaderiptv.utils.Constant;
 import zhe.it_tech613.com.vaderiptv.utils.Utils;
 
-public class LiveTVFragment extends AppCompatActivity {
+public class LiveTvLegacyFragment extends Fragment {
 
     LiveTVCategoryAdapter liveTVCategoryAdapter;
     LiveTVChannelAdapter liveTVChannelAdapter;
@@ -73,39 +76,40 @@ public class LiveTVFragment extends AppCompatActivity {
             return stringValue;
         }
     }
-    Focus_state focus_state=Focus_state.CATEGORY_LIST;
+
     @SuppressLint("ClickableViewAccessibility")
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.activity_live_tv);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view= inflater.inflate(R.layout.fragment_live_tv_new, container, false);
+        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 //        FullScreencall();
-        category_list=(RecyclerView) findViewById(R.id.category_list);
-        channel_list=(RecyclerView) findViewById(R.id.channel_list);
+        category_list=(RecyclerView) view.findViewById(R.id.category_list);
+        channel_list=(RecyclerView) view.findViewById(R.id.channel_list);
         categoryModels= Constant.categoryModels;
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         height = displayMetrics.heightPixels;
-        liveTVCategoryAdapter=new LiveTVCategoryAdapter(this, categoryModels,convertDpToPixel(200,this), height/12,new LiveTVCategoryAdapter.AdapterInterface() {
-            @Override
-            public void buttonPressed(int id) {
+        liveTVCategoryAdapter=new LiveTVCategoryAdapter(getActivity(), categoryModels,convertDpToPixel(200,getActivity()), height/12,
+                new LiveTVCategoryAdapter.AdapterInterface() {
+                    @Override
+                    public void buttonPressed(int id) {
 
-            }
-        });
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+                    }
+                });
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         category_list.setLayoutManager(mLayoutManager);
         category_list.setAdapter(liveTVCategoryAdapter);
-        largeText=(TextView)findViewById(R.id.large_text);
-        lay_0 =(LinearLayout)findViewById(R.id.lay_0);
-        lay_1 =(LinearLayout)findViewById(R.id.lay_1);
-        lay_2 =(RelativeLayout)findViewById(R.id.lay_2);
-        arrow=(ImageView)findViewById(R.id.arrow);
-        channel_icon=(ImageView)findViewById(R.id.channel_icon);
-        large_channel_no=(TextView)findViewById(R.id.large_channel);
-        progress_bar=(ProgressBar)findViewById(R.id.progress_bar);
-        RelativeLayout.LayoutParams rlp= new RelativeLayout.LayoutParams(convertDpToPixel(200,this), (int) (height*1.2/12));
+        largeText=(TextView)view.findViewById(R.id.large_text);
+        lay_0 =(LinearLayout)view.findViewById(R.id.lay_0);
+        lay_1 =(LinearLayout)view.findViewById(R.id.lay_1);
+        lay_2 =(RelativeLayout)view.findViewById(R.id.lay_2);
+        arrow=(ImageView)view.findViewById(R.id.arrow);
+        channel_icon=(ImageView)view.findViewById(R.id.channel_icon);
+        large_channel_no=(TextView)view.findViewById(R.id.large_channel);
+        progress_bar=(ProgressBar)view.findViewById(R.id.progress_bar);
+        RelativeLayout.LayoutParams rlp= new RelativeLayout.LayoutParams(convertDpToPixel(200,getActivity()), (int) (height*1.2/12));
         rlp.setMargins(0,height*11/12,0,0);
         lay_0.setLayoutParams(rlp);
         category_list.getLayoutManager().scrollToPosition(Integer.MAX_VALUE / 2);
@@ -143,16 +147,18 @@ public class LiveTVFragment extends AppCompatActivity {
                 updateCategoryLargeText(mLayoutManager,1);
             }
         },100);
-
+        return view;
     }
+
+    LiveTvLegacyFragment.Focus_state focus_state= LiveTvLegacyFragment.Focus_state.CATEGORY_LIST;
 
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT < 19) { // lower api
-            View v = this.getWindow().getDecorView();
+            View v = getActivity().getWindow().getDecorView();
             v.setSystemUiVisibility(View.GONE);
         } else  {
             //for new api versions.
-            View decorView = getWindow().getDecorView();
+            View decorView = getActivity().getWindow().getDecorView();
             int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
             decorView.setSystemUiVisibility(uiOptions);
         }
@@ -169,17 +175,17 @@ public class LiveTVFragment extends AppCompatActivity {
             if (channelModel.getCategory_id()==category_id) channelRealmModels.add(channelModel);
         }
         int size=channelRealmModels.size();
-        liveTVChannelAdapter=new LiveTVChannelAdapter(LiveTVFragment.this, this.channelRealmModels,convertDpToPixel(200,this),height/12,size,new LiveTVChannelAdapter.AdapterInterface(){
+        liveTVChannelAdapter=new LiveTVChannelAdapter(getActivity(), channelRealmModels,convertDpToPixel(200,getContext()),height/12,size,new LiveTVChannelAdapter.AdapterInterface(){
             @Override
             public void buttonPressed(long id) {
 
             }
         });
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         channel_list.setLayoutManager(linearLayoutManager);
         channel_list.setAdapter(liveTVChannelAdapter);
-        RelativeLayout.LayoutParams rlp= new RelativeLayout.LayoutParams(convertDpToPixel(200,this), (int) (height*1.2/12));
-        rlp.setMargins(convertDpToPixel(200,this),height*11/12,0,0);
+        RelativeLayout.LayoutParams rlp= new RelativeLayout.LayoutParams(convertDpToPixel(200,getActivity()), (int) (height*1.2/12));
+        rlp.setMargins(convertDpToPixel(200,getContext()),height*11/12,0,0);
         lay_1.setLayoutParams(rlp);
         DateTime start=DateTime.now(DateTimeZone.UTC).minusHours(6);
         DateTime end=DateTime.now(DateTimeZone.UTC).plusHours(6);
@@ -209,67 +215,68 @@ public class LiveTVFragment extends AppCompatActivity {
         return (int) (px / ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT));
     }
 
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        View view = getCurrentFocus();
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            LinearLayoutManager layoutManager = ((LinearLayoutManager)category_list.getLayoutManager());
-            int lastCompletelyVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
-            switch (event.getKeyCode()) {
-                case KeyEvent.KEYCODE_BACK:
-                    onBackPressed();
-                    break;
-                case KeyEvent.KEYCODE_DPAD_UP:
-                    int firstCompletelyVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-                    if (firstCompletelyVisibleItemPosition>0){
-                        updateCategoryLargeText(layoutManager,1);
-                        category_list.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                category_list.scrollToPosition(firstCompletelyVisibleItemPosition-2);
-                            }
-                        }, 5);
-                    }
-                    Log.e("livetv","upclicked");
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//        View view = getCurrentFocus();
+//        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+//            LinearLayoutManager layoutManager = ((LinearLayoutManager)category_list.getLayoutManager());
+//            int lastCompletelyVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
+//            switch (event.getKeyCode()) {
+//                case KeyEvent.KEYCODE_BACK:
+//                    onBackPressed();
+//                    break;
+//                case KeyEvent.KEYCODE_DPAD_UP:
+//                    int firstCompletelyVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+//                    if (firstCompletelyVisibleItemPosition>0){
+//                        updateCategoryLargeText(layoutManager,1);
+//                        category_list.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                category_list.scrollToPosition(firstCompletelyVisibleItemPosition-2);
+//                            }
+//                        }, 5);
+//                    }
+//                    Log.e("livetv","upclicked");
+//
+//                    break;
+//                case KeyEvent.KEYCODE_DPAD_DOWN:
+//                    if (lastCompletelyVisibleItemPosition<categoryModels.size()-1){
+//                        updateCategoryLargeText(layoutManager,0);
+//                        category_list.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                category_list.scrollToPosition(lastCompletelyVisibleItemPosition+1);
+//                            }
+//                        }, 5);
+//                    }
+//                    Log.e("livetv","downclicked");
+//                    break;
+//                case KeyEvent.KEYCODE_DPAD_CENTER:
+//                    if (focus_state==Focus_state.CATEGORY_LIST){
+//                        channel_list.requestFocus();
+//                        focus_state=Focus_state.CHANNEL_LIST;
+//                    }else {
+//                        //TODO
+//                        //play program(now channel)
+//                    }
+//                    break;
+//                case KeyEvent.KEYCODE_ALT_RIGHT:
+//                    channel_list.requestFocus();
+//                    focus_state=Focus_state.CHANNEL_LIST;
+//                    RelativeLayout.LayoutParams rlp= new RelativeLayout.LayoutParams(convertDpToPixel(200,this), (int) (height*1.2/12));
+//                    rlp.setMargins(0,height*11/12,0,0);
+//                    lay_0.setLayoutParams(rlp);
+//                    break;
+//                case KeyEvent.KEYCODE_ALT_LEFT:
+//                    category_list.requestFocus();
+//                    focus_state=Focus_state.CATEGORY_LIST;
+//                    break;
+//            }
+//            category_list.setAdapter(liveTVCategoryAdapter);
+//        }
+//        return super.dispatchKeyEvent(event);
+//    }
 
-                    break;
-                case KeyEvent.KEYCODE_DPAD_DOWN:
-                    if (lastCompletelyVisibleItemPosition<categoryModels.size()-1){
-                        updateCategoryLargeText(layoutManager,0);
-                        category_list.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                category_list.scrollToPosition(lastCompletelyVisibleItemPosition+1);
-                            }
-                        }, 5);
-                    }
-                    Log.e("livetv","downclicked");
-                    break;
-                case KeyEvent.KEYCODE_DPAD_CENTER:
-                    if (focus_state==Focus_state.CATEGORY_LIST){
-                        channel_list.requestFocus();
-                        focus_state=Focus_state.CHANNEL_LIST;
-                    }else {
-                        //TODO
-                        //play program(now channel)
-                    }
-                    break;
-                case KeyEvent.KEYCODE_ALT_RIGHT:
-                    channel_list.requestFocus();
-                    focus_state=Focus_state.CHANNEL_LIST;
-                    RelativeLayout.LayoutParams rlp= new RelativeLayout.LayoutParams(convertDpToPixel(200,this), (int) (height*1.2/12));
-                    rlp.setMargins(0,height*11/12,0,0);
-                    lay_0.setLayoutParams(rlp);
-                    break;
-                case KeyEvent.KEYCODE_ALT_LEFT:
-                    category_list.requestFocus();
-                    focus_state=Focus_state.CATEGORY_LIST;
-                    break;
-            }
-            category_list.setAdapter(liveTVCategoryAdapter);
-        }
-        return super.dispatchKeyEvent(event);
-    }
     public class LiveStreamAsync extends AsyncTask<String[], Integer, Void> {
 
         private int progressIndicator;
@@ -327,7 +334,7 @@ public class LiveTVFragment extends AppCompatActivity {
                 }
             };
             try {
-                if (new Utils().isNetworkAvailable(LiveTVFragment.this)) {
+                if (new Utils().isNetworkAvailable(getActivity())) {
                     getIncedintsThread.start();
                     /*
                      * While the getIncedintsThread thread is running , keep updating
@@ -351,7 +358,7 @@ public class LiveTVFragment extends AppCompatActivity {
             super.onPostExecute(result1);
             // progressDialog.dismiss();
             if (result == null) {
-                Toast.makeText(getApplicationContext(), getString(R.string.connection_error), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), getString(R.string.connection_error), Toast.LENGTH_LONG).show();
             } else {
                 for (int i=0;i<Constant.categoryModels.size();i++){
                     if (category_id==Constant.categoryModels.get(i).getId()) {

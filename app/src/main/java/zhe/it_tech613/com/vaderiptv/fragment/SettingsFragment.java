@@ -1,4 +1,4 @@
-package zhe.it_tech613.com.vaderiptv.activity;
+package zhe.it_tech613.com.vaderiptv.fragment;
 
 import android.content.res.ColorStateList;
 import android.graphics.Rect;
@@ -26,7 +26,7 @@ import com.github.glomadrian.materialanimatedswitch.MaterialAnimatedSwitch;
 
 import zhe.it_tech613.com.vaderiptv.R;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener{
+public class SettingsFragment extends AppCompatActivity implements View.OnClickListener{
 
     private MaterialAnimatedSwitch usable_switch,start_on_boot_switch,
             highest_quality_audio_switch,enable_internal_audio_switch,

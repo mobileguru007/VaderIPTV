@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/main_menu_container"
+    android:fitsSystemWindows="true"
+    android:layout_width="150.0dip"
+    android:layout_height="150.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/menu_btn"
+        android:background="@drawable/transparent_selector"
+        android:padding="20.0dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitCenter" />
+</android.support.design.widget.CoordinatorLayout>

@@ -51,7 +51,7 @@
         <activity android:name=".fragment.EpgFragment"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".fragment.LiveTVFragment"
+        <activity android:name=".fragment.LiveTvFragment"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".fragment.CatchUpFragment"
@@ -63,7 +63,7 @@
         <activity android:name=".fragment.VodFragment"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activity.SettingsActivity"
+        <activity android:name=".fragment.SettingsFragment"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>

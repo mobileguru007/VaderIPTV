@@ -23,7 +23,7 @@ import android.support.v7.preference.ListPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
-import com.gold.kds517.ijkplyaer.R;
+import zhe.it_tech613.com.vaderiptv.R;
 
 
 public class IjkListPreference extends ListPreference {

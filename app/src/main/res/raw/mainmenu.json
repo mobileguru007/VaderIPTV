@@ -1,0 +1,53 @@
+{
+  "rowCount": 6,
+  "items": [
+      {
+        "name": "Live TV",
+        "icon": "live_tv",
+        "activity": "zhe.it_tech613.com.vaderiptv.fragment.LiveTVFragment",
+        "height": 140,
+        "width": 140,
+        "spanSize": 1
+      },
+      {
+        "name": "TV Guide",
+        "icon": "epg",
+        "activity": "zhe.it_tech613.com.vaderiptv.fragment.EpgFragment",
+        "height": 140,
+        "width": 140,
+        "spanSize": 1
+      },
+      {
+        "name": "TV Catchup",
+        "icon": "catchup",
+        "activity": "zhe.it_tech613.com.vaderiptv.fragment.CatchUpFragment",
+        "height": 140,
+        "width": 140,
+        "spanSize": 1
+      },
+      {
+        "name": "MatchCenter",
+        "icon": "match_center",
+        "activity": "zhe.it_tech613.com.vaderiptv.fragment.MatchCenterFragment",
+        "height": 140,
+        "width": 140,
+        "spanSize": 1
+      },
+      {
+        "name": "Video On Demand",
+        "icon": "vod",
+        "activity": "zhe.it_tech613.com.vaderiptv.fragment.VodFragment",
+        "height": 140,
+        "width": 140,
+        "spanSize": 1
+      },
+      {
+        "name": "Settings",
+        "icon": "settings",
+        "activity": "zhe.it_tech613.com.vaderiptv.fragment.SettingsFragment",
+        "height": 140,
+        "width": 140,
+        "spanSize": 1
+      }
+    ]
+}

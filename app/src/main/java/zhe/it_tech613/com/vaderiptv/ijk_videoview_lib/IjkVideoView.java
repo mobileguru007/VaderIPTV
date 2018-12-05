@@ -38,10 +38,6 @@ import android.widget.MediaController;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.gold.kds517.ijkplyaer.R;
-import com.gold.kds517.ijkplyaer.ijkplayer.application.Settings;
-import com.gold.kds517.ijkplyaer.ijkplayer.services.MediaPlayerService;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,6 +55,8 @@ import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 import tv.danmaku.ijk.media.player.misc.IMediaFormat;
 import tv.danmaku.ijk.media.player.misc.ITrackInfo;
 import tv.danmaku.ijk.media.player.misc.IjkMediaFormat;
+import zhe.it_tech613.com.vaderiptv.R;
+import zhe.it_tech613.com.vaderiptv.utils.Settings;
 
 public class IjkVideoView extends FrameLayout implements MediaController.MediaPlayerControl {
     private String TAG = "IjkVideoView";

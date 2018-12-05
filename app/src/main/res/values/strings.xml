@@ -63,6 +63,25 @@
     <string name="warning_close">Do you want to close app?</string>
     <string name="ok">OK</string>
 
+    <string name="media_information">Media Information</string>
+    <string name="mi_player">Player</string>
+    <string name="mi_media">Media</string>
+    <string name="mi_profile_level">Profile level</string>
+    <string name="mi_pixel_format">Pixel format</string>
+    <string name="mi_resolution">Resolution</string>
+    <string name="mi_length">Length</string>
+    <string name="mi_stream_fmt1">Stream #%d</string>
+    <string name="mi_type">Type</string>
+    <string name="mi_language">Language</string>
+    <string name="mi_codec">Codec</string>
+    <string name="mi_frame_rate">Frame rate</string>
+    <string name="mi_bit_rate">Bit rate</string>
+    <string name="mi_sample_rate">Sample rate</string>
+    <string name="mi_channels">Channels</string>
+    <string name="mi__selected_video_track">*</string>
+    <string name="mi__selected_audio_track">*</string>
+    <string name="mi__selected_subtitle_track">*</string>
+
     <string name="TrackType_video">Video</string>
     <string name="TrackType_audio">Audio</string>
     <string name="TrackType_subtitle">Subtitle</string>
@@ -113,5 +132,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="vapi_server_url">vapi.vaders.tv</string>
 
 </resources>

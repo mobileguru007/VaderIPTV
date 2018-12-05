@@ -60,6 +60,7 @@ dependencies {
     implementation 'net.danlew:android.joda:2.10.1'
     testImplementation 'io.reactivex:rxjava:1.1.3'
     androidTestImplementation 'io.reactivex:rxjava:1.1.3'
+    implementation 'com.android.support:preference-v7:28.0.0'
 
 
     implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.7.7.1'
@@ -71,7 +72,7 @@ dependencies {
     implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.7.7.1'
 
     implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.7.7.1'
-
+    implementation 'com.facebook.fresco:fresco:1.11.0'
     implementation 'com.kaopiz:kprogresshud:1.1.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

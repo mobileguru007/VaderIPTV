@@ -25,7 +25,8 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.gold.kds517.ijkplyaer.R;
+import zhe.it_tech613.com.vaderiptv.R;
+
 
 public class TableLayoutBinder {
     private Context mContext;
